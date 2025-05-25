@@ -1,1 +1,22 @@
+# Bash Configuration
+[[language]]
+name = "bash"
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "shfmt" }
 
+# GoLang Configuration
+[language-server.gopls.config]
+gofumpt = true
+
+[[language]]
+name = "go"
+formatter = { command = "goimports" }
+
+# JSON Configuration
+[[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+
+[[language]]
+name = "jsonc"
+formatter = { command = 'prettier', args = ["--parser", "jsonc"] }

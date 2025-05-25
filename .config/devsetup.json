@@ -1,10 +1,23 @@
 {
   "commands": {
+    "golang": {
+      "install": "go install $tool@${version:-latest}"
+    },
     "mac_dependencies": {
       "install": "brew install${cask:+ --cask} $tool"
+    },
+    "nodejs": {
+      "install": "npm install -g $tool${version:+@$version}"
     }
   },
   "tools": {
+    "golang": [
+      "golang.org/x/tools/gopls",
+      "github.com/go-delve/delve/cmd/dlv",
+      "golang.org/x/tools/cmd/goimports",
+      "github.com/nametake/golangci-lint-langserver",
+      "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+    ],
     "mac_dependencies": [
       "helix",
       "yazi",
@@ -14,6 +27,7 @@
       "scooter",
       "fzf",
       "stow",
+      "shellcheck",
       {
         "tool": "ghostty",
         "cask": true
@@ -35,6 +49,15 @@
       "zoxide",
       "resvg",
       "imagemagick"
+    ],
+    "nodejs": [
+      "@anthropic-ai/claude-code",
+      "bash-language-server",
+      "prettier",
+      {
+        "tool": "vscode-langservers-extracted",
+        "version": "4.8"
+      }
     ]
   }
 }
