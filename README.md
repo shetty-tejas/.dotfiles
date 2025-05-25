@@ -62,7 +62,7 @@ mv ~/.zshrc ~/.hushlogin ~/.gitconfig ~/.config ~/dotfiles-backup/ 2>/dev/null |
 Install the custom dependency manager from [shetty-tejas/devsetup](https://github.com/shetty-tejas/devsetup):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/shetty-tejas/devsetup/main/install.sh | bash
+curl https://raw.githubusercontent.com/shetty-tejas/devsetup/refs/heads/master/install.sh | sh
 ```
 
 This would be used to install and manage dependencies for various tools.
@@ -98,6 +98,12 @@ This installs:
 
 ```bash
 source ~/.zshrc
+```
+
+#### 7. Installing Yazi Packages
+
+```bash
+ya pack -i
 ```
 
 ## ⚙️ Customization
