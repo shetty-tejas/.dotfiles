@@ -1,0 +1,40 @@
+{
+  "commands": {
+    "mac_dependencies": {
+      "install": "brew install${cask:+ --cask} $tool"
+    }
+  },
+  "tools": {
+    "mac_dependencies": [
+      "helix",
+      "yazi",
+      "lazygit",
+      "mise",
+      "fastfetch",
+      "scooter",
+      "fzf",
+      "stow",
+      {
+        "tool": "ghostty",
+        "cask": true
+      },
+      "autoconf",
+      "libyaml",
+      "readline",
+      "ca-certificates",
+      "gmp",
+      "m4",
+      "openssl@3",
+      "usage",
+      "ffmpeg",
+      "sevenzip",
+      "jq",
+      "poppler",
+      "fd",
+      "ripgrep",
+      "zoxide",
+      "resvg",
+      "imagemagick"
+    ]
+  }
+}
