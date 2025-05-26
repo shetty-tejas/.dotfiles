@@ -1,8 +1,3 @@
-# Aliases
-
-alias ls="ls --color"
-
-
 # Keybindings
 
 bindkey "^k" history-search-backward
@@ -16,6 +11,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Shell Related.
+export CLICOLOR=1
 export EDITOR="hx"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
@@ -67,6 +63,9 @@ zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
+
+# Enable autocd.
+setopt auto_cd
 
 # Show hidden files in fzf-tab completions.
 setopt globdots
