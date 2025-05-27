@@ -20,3 +20,12 @@ formatter = { command = 'prettier', args = ["--parser", "json"] }
 [[language]]
 name = "jsonc"
 formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
+
+# Ruby Configuration
+[language-server.ruby-lsp]
+command = "ruby-lsp"
+config = { diagnostics = true, formatting = true, inlayHint = true }
+
+[[language]]
+name = "ruby"
+language-servers = ["ruby-lsp"]

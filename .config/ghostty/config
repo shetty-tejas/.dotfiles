@@ -1,8 +1,10 @@
 background = #1a1a1a
 background-blur = true
-background-opacity = 0.825
+background-opacity = 0.8
 
 font-family = JetBrainsMono Nerd Font
 font-size = 16
 
 macos-option-as-alt = true
+
+theme = catppuccin-mocha
