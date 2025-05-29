@@ -5,8 +5,12 @@ indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "shfmt" }
 
 # GoLang Configuration
+[language-server.golangci-lint-lsp.config]
+command = ["golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false", "--issues-exit-code=1"]
+
 [language-server.gopls.config]
 gofumpt = true
+hints = { assignVariableTypes = true, compositeLiteralFields = true, compositeLiteralTypes = true, constantValues = true, functionTypeParameters = true, rangeVariableTypes = true }
 
 [[language]]
 name = "go"

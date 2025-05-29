@@ -1,4 +1,5 @@
 inherits = "catppuccin_mocha"
 
 "ui.background" = {}
-"ui.linenr" = "surface2"
+"ui.linenr" = "overlay0"
+"ui.virtual.inlay-hint" = { fg = "overlay0" }
