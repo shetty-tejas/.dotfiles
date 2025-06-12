@@ -31,6 +31,7 @@
       "fzf",
       "stow",
       "shellcheck",
+      "ncdu",
       {
         "tool": "ghostty",
         "cask": true
