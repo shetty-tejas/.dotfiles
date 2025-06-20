@@ -1,3 +1,6 @@
+# Aliases
+alias lg="lazygit"
+
 # Keybindings
 
 bindkey "^k" history-search-backward
