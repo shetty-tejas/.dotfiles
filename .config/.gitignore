@@ -3,3 +3,6 @@ mise/config.toml
 
 # These are package downloads. Can be downloaded via `ya pkg -i` command.
 yazi/flavors/*
+
+# Local Memory related to Claude.
+claude/*
