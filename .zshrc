@@ -1,5 +1,6 @@
 # Aliases
 alias lg="lazygit"
+alias yz="yazi"
 
 # Keybindings
 

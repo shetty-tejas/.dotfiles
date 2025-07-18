@@ -33,6 +33,7 @@ other-lines = "error"
 
 [editor.lsp]
 display-inlay-hints = true
+inlay-hints-length-limit = 12
 
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]

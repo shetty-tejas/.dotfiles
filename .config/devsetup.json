@@ -32,6 +32,8 @@
       "stow",
       "shellcheck",
       "ncdu",
+      "markdown-oxide",
+      "taplo",
       {
         "tool": "ghostty",
         "cask": true

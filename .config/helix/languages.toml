@@ -4,10 +4,6 @@ name = "bash"
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "shfmt" }
 
-# GoLang Configuration
-[language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false", "--issues-exit-code=1"]
-
 [language-server.gopls.config]
 gofumpt = true
 hints = { assignVariableTypes = true, compositeLiteralFields = true, compositeLiteralTypes = true, constantValues = true, functionTypeParameters = true, rangeVariableTypes = true }
@@ -34,6 +30,11 @@ config = { diagnostics = true, formatting = true, inlayHint = true }
 name = "ruby"
 language-servers = ["ruby-lsp"]
 
+# TOML Configuration
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
 # Frontend Configuration
 [language-server.tailwindcss-ls]
 command = "tailwindcss-language-server"
@@ -52,24 +53,49 @@ language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
 [[language]]
 name = "javascript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
 
 [[language]]
 name = "svelte"
-formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-svelte", "--parser", "svelte"] }
-language-servers = ["svelteserver", "tailwindcss-ls", "vscode-eslint-language-server"]
+formatter = { command = "prettier", args = [
+  "--plugin",
+  "prettier-plugin-svelte",
+  "--parser",
+  "svelte",
+] }
+language-servers = [
+  "svelteserver",
+  "tailwindcss-ls",
+  "vscode-eslint-language-server",
+]
+
+[[language]]
+name = "markdown"
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
 
 [[language]]
 name = "typescript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
 
 [[language]]
 name = "jsx"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
 
 [[language]]
 name = "tsx"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-language-servers = ["typescript-language-server", "vscode-eslint-language-server"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
