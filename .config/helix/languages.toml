@@ -1,25 +1,51 @@
+# Grammar Setup
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+[language-server.harper-ls.config.harper-ls]
+userDictPath = "$HOME/.config/harper/dictionary.txt"
+fileDictPath = "$HOME/.config/harper/file-dictionaries"
+diagnosticSeverity = "warning"
+isolateEnglish = true
+dialect = "British"
+
+[language-server.harper-ls.config.harper-ls.linters]
+BoringWords = true
+
 # Bash Configuration
 [[language]]
 name = "bash"
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "shfmt" }
 
+# Go Configuration
 [language-server.gopls.config]
 gofumpt = true
-hints = { assignVariableTypes = true, compositeLiteralFields = true, compositeLiteralTypes = true, constantValues = true, functionTypeParameters = true, rangeVariableTypes = true }
+
+[language-server.gopls.config.hints]
+assignVariableTypes = true
+compositeLiteralFields = true
+compositeLiteralTypes = true
+constantValues = true
+functionTypeParameters = true
+rangeVariableTypes = true
 
 [[language]]
 name = "go"
 formatter = { command = "goimports" }
+language-servers = ["gopls", "golangci-lint-lsp", "harper-ls"]
 
 # JSON Configuration
 [[language]]
 name = "json"
 formatter = { command = 'prettier', args = ["--parser", "json"] }
+language-servers = ["vscode-json-language-server", "harper-ls"]
 
 [[language]]
 name = "jsonc"
 formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
+language-servers = ["vscode-json-language-server", "harper-ls"]
 
 # Ruby Configuration
 [language-server.ruby-lsp]
@@ -28,12 +54,13 @@ config = { diagnostics = true, formatting = true, inlayHint = true }
 
 [[language]]
 name = "ruby"
-language-servers = ["ruby-lsp"]
+language-servers = ["ruby-lsp", "harper-ls"]
 
 # TOML Configuration
 [[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["fmt", "-"] }
+language-servers = ["taplo", "harper-ls"]
 
 # Frontend Configuration
 [language-server.tailwindcss-ls]
@@ -41,14 +68,23 @@ command = "tailwindcss-language-server"
 args = ["--stdio"]
 
 [[language]]
-name = "html"
-formatter = { command = 'prettier', args = ["--parser", "html"] }
-language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
-
-[[language]]
 name = "css"
 formatter = { command = 'prettier', args = ["--parser", "css"] }
 language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+language-servers = [
+  "vscode-html-language-server",
+  "tailwindcss-ls",
+  "harper-ls",
+]
+
+[[language]]
+name = "markdown"
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+language-servers = ["markdown-oxide", "harper-ls"]
 
 [[language]]
 name = "javascript"
@@ -56,6 +92,16 @@ formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-server",
+  "harper-ls",
+]
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+  "harper-ls",
 ]
 
 [[language]]
@@ -70,18 +116,7 @@ language-servers = [
   "svelteserver",
   "tailwindcss-ls",
   "vscode-eslint-language-server",
-]
-
-[[language]]
-name = "markdown"
-formatter = { command = 'prettier', args = ["--parser", "markdown"] }
-
-[[language]]
-name = "typescript"
-formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-language-servers = [
-  "typescript-language-server",
-  "vscode-eslint-language-server",
+  "harper-ls",
 ]
 
 [[language]]
@@ -90,6 +125,7 @@ formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-server",
+  "harper-ls",
 ]
 
 [[language]]
@@ -98,4 +134,5 @@ formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-server",
+  "harper-ls",
 ]

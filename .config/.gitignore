@@ -6,3 +6,6 @@ yazi/flavors/*
 
 # Local Memory related to Claude.
 claude/*
+
+# Some Wrangler Logs that I assume is from sveltekit/adapter-cloudflare
+.wrangler/*

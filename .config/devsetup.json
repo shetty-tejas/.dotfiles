@@ -9,70 +9,82 @@
     "nodejs": {
       "install": "npm install -g $tool${version:+@$version}"
     },
+    "ollama": {
+      "install": "ollama run $tool${version:+:$version}"
+    },
     "ruby": {
       "install": "gem install $tool"
     }
   },
   "tools": {
     "golang": [
-      "golang.org/x/tools/gopls",
       "github.com/go-delve/delve/cmd/dlv",
-      "golang.org/x/tools/cmd/goimports",
+      "github.com/golangci/golangci-lint/v2/cmd/golangci-lint",
       "github.com/nametake/golangci-lint-langserver",
-      "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+      "golang.org/x/tools/cmd/goimports",
+      "golang.org/x/tools/gopls"
     ],
     "mac_dependencies": [
-      "helix",
-      "yazi",
-      "lazygit",
-      "mise",
+      "anythingllm",
+      "autoconf",
+      "ca-certificates",
       "fastfetch",
-      "scooter",
-      "fzf",
-      "stow",
-      "shellcheck",
-      "ncdu",
-      "markdown-oxide",
-      "taplo",
-      {
-        "tool": "ghostty",
-        "cask": true
-      },
+      "fd",
+      "ffmpeg",
       {
         "tool": "firefox@developer-edition",
         "cask": true
       },
-      "autoconf",
-      "libyaml",
-      "readline",
-      "ca-certificates",
+      "fzf",
+      {
+        "tool": "ghostty",
+        "cask": true
+      },
       "gmp",
-      "m4",
-      "openssl@3",
-      "usage",
-      "ffmpeg",
-      "sevenzip",
+      "harper",
+      "helix",
+      "imagemagick",
       "jq",
+      "lazygit",
+      "libyaml",
+      "m4",
+      "markdown-oxide",
+      "mise",
+      "ncdu",
+      "ollama",
+      "openssl@3",
       "poppler",
-      "fd",
-      "ripgrep",
-      "zoxide",
+      "readline",
       "resvg",
-      "imagemagick"
+      "ripgrep",
+      "scooter",
+      "sevenzip",
+      "shellcheck",
+      "stow",
+      "taplo",
+      "usage",
+      "yazi",
+      "zoxide"
     ],
     "nodejs": [
       "@anthropic-ai/claude-code",
+      "@tailwindcss/language-server",
       "bash-language-server",
       "eslint",
       "prettier",
       "prettier-plugin-svelte",
       "svelte-language-server",
-      "@tailwindcss/language-server",
       "typescript",
       "typescript-language-server",
       {
         "tool": "vscode-langservers-extracted",
         "version": "4.8"
+      }
+    ],
+    "ollama": [
+      {
+        "tool": "mistral",
+        "version": "latest"
       }
     ],
     "ruby": ["ruby-lsp", "rubocop"]

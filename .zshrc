@@ -1,6 +1,8 @@
 # Aliases
 alias lg="lazygit"
 alias yz="yazi"
+alias ollama:start="brew services start ollama"
+alias ollama:stop="brew services stop ollama"
 
 # Keybindings
 
