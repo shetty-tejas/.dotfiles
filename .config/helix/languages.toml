@@ -4,8 +4,8 @@ command = "harper-ls"
 args = ["--stdio"]
 
 [language-server.harper-ls.config.harper-ls]
-userDictPath = "$HOME/.config/harper/dictionary.txt"
-fileDictPath = "$HOME/.config/harper/file-dictionaries"
+userDictPath = "~/.config/harper/dictionary.txt"
+fileDictPath = "./.harper/file-dictionaries"
 diagnosticSeverity = "warning"
 isolateEnglish = true
 dialect = "British"
