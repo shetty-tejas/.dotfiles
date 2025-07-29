@@ -12,6 +12,7 @@ dialect = "British"
 
 [language-server.harper-ls.config.harper-ls.linters]
 BoringWords = true
+ToDoHyphen = false
 
 # Bash Configuration
 [[language]]

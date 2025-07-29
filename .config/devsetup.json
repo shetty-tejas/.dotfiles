@@ -10,7 +10,7 @@
       "install": "npm install -g $tool${version:+@$version}"
     },
     "ollama": {
-      "install": "ollama run $tool${version:+:$version}"
+      "install": "ollama pull $tool${version:+:$version}"
     },
     "ruby": {
       "install": "gem install $tool"
