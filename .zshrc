@@ -19,7 +19,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Shell Related.
 export CLICOLOR=1
 export EDITOR="hx"
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/opt/homebrew/opt/llvm/bin:$PATH"
 
 # History Related Variables.
 export HISTSIZE=2500

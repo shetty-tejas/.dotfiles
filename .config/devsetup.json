@@ -47,6 +47,7 @@
       "jq",
       "lazygit",
       "libyaml",
+      "llvm",
       "m4",
       "markdown-oxide",
       "mise",

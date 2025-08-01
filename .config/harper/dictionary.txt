@@ -2,3 +2,4 @@ DigitalOcean
 SvelteKit
 TODO
 Thorsten
+uuid
