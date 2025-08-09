@@ -3,7 +3,7 @@
     "golang": {
       "install": "go install $tool@${version:-latest}"
     },
-    "mac_dependencies": {
+    "brew": {
       "install": "brew install${cask:+ --cask} $tool"
     },
     "nodejs": {
@@ -24,7 +24,7 @@
       "golang.org/x/tools/cmd/goimports",
       "golang.org/x/tools/gopls"
     ],
-    "mac_dependencies": [
+    "brew": [
       "anythingllm",
       "autoconf",
       "ca-certificates",

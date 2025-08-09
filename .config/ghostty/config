@@ -1,6 +1,6 @@
 background = #1a1a1a
 background-blur = true
-background-opacity = 0.8
+background-opacity = 0.75
 
 font-family = JetBrainsMono Nerd Font
 font-size = 16
