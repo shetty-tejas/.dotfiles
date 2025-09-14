@@ -27,6 +27,7 @@
     "brew": [
       "anythingllm",
       "autoconf",
+      "bruno",
       "ca-certificates",
       "fastfetch",
       "fd",
@@ -63,6 +64,10 @@
       "shellcheck",
       "stow",
       "taplo",
+      {
+        "tool": "transmission",
+        "cask": true
+      },
       "usage",
       "yazi",
       "zoxide"

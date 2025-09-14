@@ -66,7 +66,7 @@ config = { diagnostics = true, formatting = true, inlayHint = true }
 
 [[language]]
 name = "ruby"
-language-servers = ["ruby-lsp", "harper-ls"]
+language-servers = ["ruby-lsp"]
 
 # TOML Configuration
 [[language]]
