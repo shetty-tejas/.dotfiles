@@ -1,8 +1,6 @@
 # Aliases
 alias lg="lazygit"
 alias yz="yazi"
-alias ollama:start="brew services start ollama"
-alias ollama:stop="brew services stop ollama"
 
 # Keybindings
 
@@ -12,6 +10,9 @@ bindkey "^j" history-search-forward
 
 # Variables.
 
+# Local Variables
+local ICU4C_LIB="icu4c@77"
+
 # XDG Specific Variables.
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -19,7 +20,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Shell Related.
 export CLICOLOR=1
 export EDITOR="hx"
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/opt/$ICU4C_LIB/bin:$PATH"
 
 # History Related Variables.
 export HISTSIZE=2500
@@ -30,9 +31,12 @@ export HISTDUP="erase"
 # Homebrew Related Variables.
 export HOMEBREW_NO_ENV_HINTS="true"
 
+# ICU4C Related Variables.
+export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c@77/lib/pkgconfig"
+
 # Readline Related Variables.
-export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
-export LDFLAGS="-L/opt/homebrew/opt/readline/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/$ICU4C_LIB/include"
+export LDFLAGS="-L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/$ICU4C_LIB/lib"
 
 # Mise Related Variables.
 export MISE_RUBY_BUILD_OPTS="--enable-yjit"

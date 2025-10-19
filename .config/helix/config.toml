@@ -6,7 +6,7 @@ bufferline = "always"
 color-modes = true
 cursorcolumn = true
 cursorline = true
-end-of-line-diagnostics = "hint"
+end-of-line-diagnostics = "info"
 line-number = "relative"
 mouse = false
 rulers = [150]
@@ -28,8 +28,8 @@ hidden = false
 render = true
 
 [editor.inline-diagnostics]
-cursor-line = "warning"
-other-lines = "error"
+cursor-line = "info"
+other-lines = "warning"
 
 [editor.lsp]
 display-inlay-hints = true

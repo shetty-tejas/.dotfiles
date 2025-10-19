@@ -60,9 +60,19 @@ formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
 language-servers = ["vscode-json-language-server", "harper-ls"]
 
 # Ruby Configuration
+[language-server.herb]
+command = "herb-language-server"
+args = ["--stdio"]
+
 [language-server.ruby-lsp]
 command = "ruby-lsp"
 config = { diagnostics = true, formatting = true, inlayHint = true }
+
+[[language]]
+name = "erb"
+language-servers = ["herb"]
+file-types = ["erb", "html.erb"]
+roots = ["Gemfile", "package.json"]
 
 [[language]]
 name = "ruby"
@@ -73,6 +83,17 @@ language-servers = ["ruby-lsp"]
 name = "toml"
 formatter = { command = "taplo", args = ["fmt", "-"] }
 language-servers = ["taplo", "harper-ls"]
+
+[language-server.yaml-language-server.config.yaml]
+format = { enable = true }
+validation = true
+
+[language-server.yaml-language-server.config.yaml.schemas]
+"https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yml,yaml}"
+
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server"]
 
 # Frontend Configuration
 [language-server.tailwindcss-ls]

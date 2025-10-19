@@ -9,9 +9,6 @@
     "nodejs": {
       "install": "npm install -g $tool${version:+@$version}"
     },
-    "ollama": {
-      "install": "ollama pull $tool${version:+:$version}"
-    },
     "ruby": {
       "install": "gem install $tool"
     }
@@ -25,17 +22,12 @@
       "golang.org/x/tools/gopls"
     ],
     "brew": [
-      "anythingllm",
       "autoconf",
       "bruno",
       "ca-certificates",
       "fastfetch",
       "fd",
       "ffmpeg",
-      {
-        "tool": "firefox@developer-edition",
-        "cask": true
-      },
       "fzf",
       {
         "tool": "ghostty",
@@ -57,8 +49,8 @@
       "markdown-oxide",
       "mise",
       "ncdu",
-      "ollama",
       "openssl@3",
+      "pkg-config",
       "poppler",
       "readline",
       "resvg",
@@ -72,12 +64,18 @@
         "tool": "transmission",
         "cask": true
       },
+      {
+        "tool": "ungoogled-chromium",
+        "cask": true
+      },
       "usage",
+      "yaml-language-server",
       "yazi",
       "zoxide"
     ],
     "nodejs": [
       "@anthropic-ai/claude-code",
+      "@herb-tools/language-server",
       "@tailwindcss/language-server",
       "bash-language-server",
       "eslint",
@@ -89,13 +87,8 @@
       {
         "tool": "vscode-langservers-extracted",
         "version": "4.8"
-      }
-    ],
-    "ollama": [
-      {
-        "tool": "mistral",
-        "version": "latest"
-      }
+      },
+      "yaml-language-server"
     ],
     "ruby": ["ruby-lsp", "rubocop"]
   }

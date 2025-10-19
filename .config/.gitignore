@@ -4,8 +4,11 @@ mise/config.toml
 # These are package downloads. Can be downloaded via `ya pkg -i` command.
 yazi/flavors/*
 
-# Local Memory related to Claude.
+# Local Memory related to Claude/Copilot.
 claude/*
+configstore
+.copilot/*
+github-copilot*
 
 # Some Wrangler Logs that I assume is from sveltekit/adapter-cloudflare
 .wrangler/*
