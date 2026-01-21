@@ -12,3 +12,6 @@ github-copilot*
 
 # Some Wrangler Logs that I assume is from sveltekit/adapter-cloudflare
 .wrangler/*
+
+.android/*
+swiftpm/*

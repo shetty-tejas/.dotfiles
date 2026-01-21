@@ -75,6 +75,7 @@
     ],
     "nodejs": [
       "@anthropic-ai/claude-code",
+      "@google/gemini-cli",
       "@herb-tools/language-server",
       "@tailwindcss/language-server",
       "bash-language-server",
