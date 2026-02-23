@@ -43,6 +43,7 @@
       "imagemagick",
       "jq",
       "lazygit",
+      "libvips",
       "libyaml",
       "llvm",
       "m4",
@@ -69,7 +70,6 @@
         "cask": true
       },
       "usage",
-      "yaml-language-server",
       "yazi",
       "zoxide"
     ],
@@ -91,6 +91,9 @@
       },
       "yaml-language-server"
     ],
-    "ruby": ["ruby-lsp", "rubocop"]
+    "ruby": [
+      "ruby-lsp",
+      "rubocop"
+    ]
   }
 }
