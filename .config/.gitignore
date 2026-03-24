@@ -1,5 +1,6 @@
 # Ignoring because I use different configurations per machine.
 mise/config.toml
+fizzy_assistant/.settings.json
 
 # These are package downloads. Can be downloaded via `ya pkg -i` command.
 yazi/flavors/*
