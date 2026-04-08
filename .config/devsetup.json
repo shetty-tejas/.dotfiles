@@ -23,6 +23,7 @@
     ],
     "brew": [
       "autoconf",
+      "bat",
       "bruno",
       "ca-certificates",
       "fastfetch",
