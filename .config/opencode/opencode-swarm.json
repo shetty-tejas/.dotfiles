@@ -1,0 +1,49 @@
+{
+  "agents": {
+    "architect": {
+      "model": "github-copilot/claude-opus-4.6",
+      "fallback_models": ["opencode/trinity-large-preview-free"]
+    },
+    "explorer": {
+      "model": "github-copilot/claude-sonnet-4.6",
+      "fallback_models": ["opencode/trinity-large-preview-free"]
+    },
+    "sme": {
+      "model": "github-copilot/claude-opus-4.6",
+      "fallback_models": ["opencode/trinity-large-preview-free"]
+    },
+    "critic": {
+      "model": "github-copilot/gpt-5.4",
+      "fallback_models": ["opencode/trinity-large-preview-free"]
+    },
+    "critic_sounding_board": {
+      "model": "github-copilot/claude-haiku-4.5"
+    },
+    "critic_drift_verifier": {
+      "model": "github-copilot/gemini-3.1-pro-preview"
+    },
+    "coder": {
+      "model": "github-copilot/gpt-5.3-codex",
+      "fallback_models": ["opencode/minimax-m2.5-free"]
+    },
+    "reviewer": {
+      "model": "github-copilot/gemini-3.1-pro-preview",
+      "fallback_models": ["opencode/big-pickle"]
+    },
+    "test_engineer": {
+      "model": "github-copilot/gpt-5.3-codex",
+      "fallback_models": ["opencode/gpt-5-nano"]
+    },
+    "designer": {
+      "model": "github-copilot/gpt-5.4-mini",
+      "fallback_models": ["opencode/trinity-large-preview-free"]
+    },
+    "docs": {
+      "model": "github-copilot/claude-haiku-4.5",
+      "fallback_models": ["opencode/trinity-large-preview-free"]
+    }
+  },
+  "curator": {
+    "enabled": true
+  }
+}

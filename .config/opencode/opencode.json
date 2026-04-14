@@ -1,6 +1,31 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "stager": {
+      "description": "Analyzes unstaged changes, groups them into an atomic unit, stages them, and calls the committer.",
+      "mode": "subagent",
+      "model": "opencode-go/mimo-v2-omni",
+      "prompt": "{file:./prompts/stager.md}",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": true
+      }
+    },
+    "committer": {
+      "description": "Analyzes staged git changes and generates strict conventional commit messages.",
+      "mode": "subagent",
+      "model": "opencode-go/minimax-m2.7",
+      "prompt": "{file:./prompts/committer.md}",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": true
+      }
+    }
+  },
   "plugin": [
-    "opencode-gemini-auth"
+    "opencode-gemini-auth",
+    "opencode-swarm"
   ],
 }
