@@ -18,6 +18,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export CLICOLOR=1
 export EDITOR="hx"
 
+# OpenCode Related
+export OPENCODE_ENABLE_EXA=true
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
+
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
 # History Related Variables.

@@ -4,7 +4,7 @@
     "stager": {
       "description": "Analyzes unstaged changes, stages them, and hands off to the committer.",
       "mode": "subagent",
-      "model": "opencode-go/qwen3.6-plus",
+      "model": "github-copilot/gpt-4o",
       "prompt": "{file:./prompts/stager.md}",
       "tools": {
         "write": false,
@@ -15,7 +15,7 @@
     "committer": {
       "description": "Analyzes staged git changes, commits them, and loops back to the stager.",
       "mode": "subagent",
-      "model": "opencode-go/qwen3.5-plus",
+      "model": "github-copilot/gpt-4o",
       "prompt": "{file:./prompts/committer.md}",
       "tools": {
         "write": false,
@@ -24,8 +24,19 @@
       }
     }
   },
+  "compaction": {
+    "auto": false
+  },
   "plugin": [
     "opencode-gemini-auth",
-    "opencode-swarm"
+    "opencode-swarm",
+    "@tarquinen/opencode-dcp@latest",
   ],
+  "permission": {
+    "codesearch": "allow",
+    "lsp": "allow",
+    "webfetch": "allow",
+    "websearch": "allow"
+  },
+  "share": "disabled"
 }
