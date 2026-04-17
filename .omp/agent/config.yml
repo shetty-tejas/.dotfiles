@@ -1,0 +1,60 @@
+lastChangelogVersion: 14.1.2
+task: 
+  disabledAgents: 
+    []
+  agentModelOverrides: 
+    designer: github-copilot/gemini-3.1-pro-preview
+    explore: github-copilot/claude-haiku-4.5
+    librarian: github-copilot/claude-haiku-4.5
+    quick_task: github-copilot/claude-haiku-4.5
+  isolation: 
+    mode: fuse-overlay
+    commits: ai
+  eager: true
+theme: 
+  dark: dark-catppuccin
+  light: light-catppuccin
+symbolPreset: nerd
+statusLine: 
+  preset: default
+  separator: slash
+  showHookStatus: true
+display: 
+  showTokenUsage: true
+exa: 
+  enableResearcher: true
+  enableWebsets: true
+providers: 
+  webSearch: exa
+commands: 
+  enableClaudeUser: false
+  enableClaudeProject: false
+renderMermaid: 
+  enabled: true
+calc: 
+  enabled: true
+inspect_image: 
+  enabled: true
+checkpoint: 
+  enabled: true
+async: 
+  enabled: true
+bash: 
+  autoBackground: 
+    enabled: false
+dev: 
+  autoqa: true
+lsp: 
+  diagnosticsOnEdit: true
+python: 
+  sharedGateway: false
+collapseChangelog: true
+compaction: 
+  handoffSaveToDisk: true
+memories: 
+  enabled: false
+modelRoles: 
+  plan: github-copilot/gpt-5.4:xhigh
+  designer: google-gemini-cli/gemini-3.1-pro-preview:high
+  default: github-copilot/gemini-3.1-pro-preview:high
+  smol: google-gemini-cli/gemini-3.1-pro-preview:high

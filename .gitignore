@@ -1,1 +1,3 @@
-.swarm
+.omp/agent/*
+.omp/logs
+!.omp/agent/config.yml
