@@ -37,7 +37,6 @@
         "tool": "ghostty",
         "cask": true
       },
-      "gemini-cli",
       "gmp",
       "harper",
       "helix",
