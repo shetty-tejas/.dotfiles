@@ -23,7 +23,7 @@ export EDITOR="hx"
 export OPENCODE_ENABLE_EXA=true
 export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.bun/bin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix)/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/.bun/bin:/usr/local/bin:$PATH"
 
 # History Related Variables.
 export HISTSIZE=2500
