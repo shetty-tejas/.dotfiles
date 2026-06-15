@@ -1,3 +1,7 @@
+# ---------------------------------------------------------------------
+# SETUP
+# ---------------------------------------------------------------------
+
 # Aliases
 alias lg="lazygit"
 alias yz="yazi"
@@ -18,12 +22,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Shell Related.
 export CLICOLOR=1
 export EDITOR="hx"
-
-# OpenCode Related
-export OPENCODE_ENABLE_EXA=true
-export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
-
-export PATH="$(brew --prefix)/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/.bun/bin:/usr/local/bin:$PATH"
 
 # History Related Variables.
 export HISTSIZE=2500
@@ -49,8 +47,7 @@ export TYPEWRITTEN_SYMBOL="->"
 # Zinit Related Variables.
 export ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 
-
-# Runnables
+export PATH="$HOMEBREW_PREFIX/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/.bun/bin:/usr/local/bin:$PATH"
 
 # Download Zinit if doesn't exist in the system.
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -61,58 +58,69 @@ fi
 # Sourcing Zinit.
 source "$ZINIT_HOME/zinit.zsh"
 
-# Enabling Typewritten Theme.
+# ---------------------------------------------------------------------
+# PLUGINS & THEME
+# ---------------------------------------------------------------------
+
+# Load the prompt instantly
 zinit ice compile'(typewritten|async).zsh' pick'async.zsh' src'typewritten.zsh'
 zinit light reobin/typewritten
 
-# Enabling Zinit Plugins
+# Load Plugins
+zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
-zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid blockf
 zinit light zsh-users/zsh-completions
+
+zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C"
+zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C" atload"zicompinit; zicdreplay"
 zinit light zsh-users/zsh-syntax-highlighting
 
-# Enable autocd.
+# ---------------------------------------------------------------------
+# SHELL OPTIONS & STYLES
+# ---------------------------------------------------------------------
 setopt auto_cd
-
-# Show hidden files in fzf-tab completions.
 setopt globdots
-
-# Append the commands to history file, rather than overwriting it.
 setopt appendhistory
-
-# Share the history between different terminal sessions.
 setopt sharehistory
-
-# Ignore appending the commands into history if it's prefixed by a space.
 setopt hist_ignore_space
-
-# Ignore duplicates in the history.
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Case-Insensitive Auto Completion.
 zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
-
-# Enabling Colors for the Completions.
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
-
-# Disabling the default ZStyle Completion menu.
 zstyle ":completion:*" menu no
+zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --color \$realpath"
 
-# Better cd autocomplete using fzf-tab.
-zstyle ":fzf-tab:complete:cd:*" fzf-preview 'ls --color $realpath'
+# ---------------------------------------------------------------------
+# EXTERNAL TOOLS & COMPLETION FIXED
+# ---------------------------------------------------------------------
 
-# Enabling Mise Shims.
-eval "$(mise activate zsh)"
+# Activate Mise
+zinit ice wait lucid
+zinit snippet OMZP::mise
 
-# Enabling FZF Shell Integration.
-eval "$(fzf --zsh)"
+# Activate FZF for ZSH
+zinit ice wait lucid
+zinit snippet OMZP::fzf
 
-# Load the completions before starting.
-autoload -U compinit && compinit
+# Compile autocompletions dump
+autoload -Uz compinit;
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+  compinit
+else
+  compinit -C
+fi
+
+# Tell Zinit to catch up on completions in the background
 zinit cdreplay -q
 
-# Nice System Information on Session Load.
-fastfetch
+# System Information
+if [[ -o interactive ]]; then
+    fastfetch
+fi
