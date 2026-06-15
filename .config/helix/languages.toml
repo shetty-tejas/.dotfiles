@@ -78,6 +78,11 @@ roots = ["Gemfile", "package.json"]
 name = "ruby"
 language-servers = ["ruby-lsp"]
 
+# Rust Configuration
+[[language]]
+name = "rust"
+formatter = { command = "bash", args = ["-c", "rustfmt"] }
+
 # TOML Configuration
 [[language]]
 name = "toml"

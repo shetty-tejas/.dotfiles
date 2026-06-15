@@ -1,4 +1,4 @@
-lastChangelogVersion: 14.5.12
+lastChangelogVersion: 15.7.6
 task: 
   disabledAgents: 
     []
@@ -8,12 +8,12 @@ task:
     librarian: github-copilot/claude-haiku-4.5
     quick_task: github-copilot/claude-haiku-4.5
   isolation: 
-    mode: fuse-overlay
+    mode: overlayfs
     commits: ai
   eager: true
 theme: 
-  dark: dark-catppuccin
-  light: light-catppuccin
+  dark: titanium
+  light: light
 symbolPreset: nerd
 statusLine: 
   preset: default
@@ -43,7 +43,8 @@ bash:
   autoBackground: 
     enabled: false
 dev: 
-  autoqa: true
+  autoqa: 
+    consent: granted
 lsp: 
   diagnosticsOnEdit: true
 python: 
@@ -54,7 +55,10 @@ compaction:
 memories: 
   enabled: false
 modelRoles: 
-  plan: github-copilot/gpt-5.4:xhigh
+  plan: github-copilot/claude-opus-4.6:medium
   designer: google-gemini-cli/gemini-3.1-pro-preview:high
   default: github-copilot/gemini-3.1-pro-preview:high
   smol: google-gemini-cli/gemini-3.1-pro-preview:high
+memory: 
+  backend: "off"
+setupVersion: 1

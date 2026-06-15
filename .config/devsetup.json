@@ -60,6 +60,7 @@
       "readline",
       "resvg",
       "ripgrep",
+      "rust-analyzer",
       "scooter",
       "sevenzip",
       "shellcheck",
