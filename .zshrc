@@ -3,9 +3,10 @@
 # ---------------------------------------------------------------------
 
 # Aliases
+alias cat="bat"
 alias lg="lazygit"
-alias yz="yazi"
 alias pi="omp"
+alias yz="yazi"
 
 # Keybindings
 

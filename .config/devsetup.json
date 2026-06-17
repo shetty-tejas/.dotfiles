@@ -59,7 +59,6 @@
       "readline",
       "resvg",
       "ripgrep",
-      "rust-analyzer",
       "scooter",
       "sevenzip",
       "shellcheck",
@@ -74,8 +73,7 @@
         "cask": true
       },
       "usage",
-      "yazi",
-      "zoxide"
+      "yazi"
     ],
     "bun": ["@oh-my-pi/pi-coding-agent"],
     "nodejs": [
