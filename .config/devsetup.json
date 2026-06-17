@@ -49,7 +49,6 @@
       "lazygit",
       "libvips",
       "libyaml",
-      "llvm",
       "m4",
       "markdown-oxide",
       "mise",
@@ -78,9 +77,7 @@
       "yazi",
       "zoxide"
     ],
-    "bun": [
-      "@oh-my-pi/pi-coding-agent"
-    ],
+    "bun": ["@oh-my-pi/pi-coding-agent"],
     "nodejs": [
       "@herb-tools/language-server",
       "@tailwindcss/language-server",
@@ -97,9 +94,6 @@
       },
       "yaml-language-server"
     ],
-    "ruby": [
-      "ruby-lsp",
-      "rubocop"
-    ]
+    "ruby": ["ruby-lsp", "rubocop"]
   }
 }

@@ -47,7 +47,7 @@ export TYPEWRITTEN_SYMBOL="->"
 # Zinit Related Variables.
 export ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 
-export PATH="$HOMEBREW_PREFIX/opt/llvm/bin:$HOME/bin:$HOME/.local/bin:$HOME/.bun/bin:/usr/local/bin:$PATH"
+export PATH="/Library/Developer/CommandLineTools/usr/bin:$HOME/bin:$HOME/.local/bin:$HOME/.bun/bin:/usr/local/bin:$PATH"
 
 # Download Zinit if doesn't exist in the system.
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -67,13 +67,13 @@ zinit ice compile'(typewritten|async).zsh' pick'async.zsh' src'typewritten.zsh'
 zinit light reobin/typewritten
 
 # Load Plugins
-zinit ice wait lucid
+zinit ice wait lucid bindings completions
 zinit light Aloxaf/fzf-tab
 
 zinit ice wait lucid blockf
 zinit light zsh-users/zsh-completions
 
-zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C"
+zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C" atload"!_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
 
 zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C" atload"zicompinit; zicdreplay"
@@ -105,10 +105,6 @@ zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --color \$realpath"
 zinit ice wait lucid
 zinit snippet OMZP::mise
 
-# Activate FZF for ZSH
-zinit ice wait lucid
-zinit snippet OMZP::fzf
-
 # Compile autocompletions dump
 autoload -Uz compinit;
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
@@ -123,4 +119,9 @@ zinit cdreplay -q
 # System Information
 if [[ -o interactive ]]; then
     fastfetch
+fi
+
+# Automatically precompile .zshrc to bytecode if it changed
+if [[ -s "$HOME/.zshrc" && (! -s "$HOME/.zshrc.zwc" || "$HOME/.zshrc" -nt "$HOME/.zshrc.zwc") ]]; then
+  zcompile "$HOME/.zshrc"
 fi
