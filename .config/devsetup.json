@@ -25,7 +25,6 @@
       "golang.org/x/tools/gopls"
     ],
     "brew": [
-      "autoconf",
       "bat",
       "bruno",
       "ca-certificates",
@@ -48,7 +47,6 @@
       "jq",
       "lazygit",
       "libvips",
-      "libyaml",
       "m4",
       "markdown-oxide",
       "mise",
@@ -60,7 +58,6 @@
       "resvg",
       "ripgrep",
       "scooter",
-      "sevenzip",
       "shellcheck",
       "stow",
       "taplo",
