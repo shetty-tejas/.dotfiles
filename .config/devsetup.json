@@ -46,7 +46,7 @@
       "imagemagick",
       "jq",
       "lazygit",
-      "libvips",
+      "lsd",
       "m4",
       "markdown-oxide",
       "mise",
@@ -69,7 +69,6 @@
         "tool": "ungoogled-chromium",
         "cask": true
       },
-      "usage",
       "yazi"
     ],
     "bun": ["@oh-my-pi/pi-coding-agent"],

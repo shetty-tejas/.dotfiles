@@ -5,6 +5,7 @@
 # Aliases
 alias cat="bat"
 alias lg="lazygit"
+alias ls="lsd"
 alias pi="omp"
 alias yz="yazi"
 
