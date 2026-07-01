@@ -2,22 +2,25 @@ task:
   disabledAgents: 
     []
   agentModelOverrides: 
-    designer: github-copilot/gemini-3.1-pro-preview
-    explore: github-copilot/claude-haiku-4.5
-    librarian: github-copilot/claude-haiku-4.5
-    quick_task: github-copilot/claude-haiku-4.5
+    {}
   isolation: 
-    mode: overlayfs
+    mode: auto
     commits: ai
-  eager: always
+    merge: patch
+  eager: preferred
+  maxConcurrency: 8
+  enableLsp: false
+  batch: true
 theme: 
-  dark: titanium
+  dark: dark-catppuccin
   light: light
 symbolPreset: nerd
 statusLine: 
   preset: default
-  separator: slash
-  showHookStatus: true
+  separator: pipe
+  showHookStatus: false
+  transparent: false
+  compactThinkingLevel: false
 display: 
   showTokenUsage: true
 exa: 
@@ -25,9 +28,14 @@ exa:
   enableWebsets: true
 providers: 
   webSearch: exa
+  memoryModel: online
+  antigravityEndpoint: auto
+  tinyModel: online
 commands: 
   enableClaudeUser: false
   enableClaudeProject: false
+  enableOpencodeUser: false
+  enableOpencodeProject: false
 renderMermaid: 
   enabled: true
 calc: 
@@ -42,22 +50,69 @@ bash:
   autoBackground: 
     enabled: false
 dev: 
-  autoqa: 
-    consent: granted
+  autoqa: false
 lsp: 
   diagnosticsOnEdit: true
+  formatOnWrite: true
 python: 
   sharedGateway: false
 collapseChangelog: true
 compaction: 
-  handoffSaveToDisk: true
+  handoffSaveToDisk: false
+  strategy: snapcompact
+  thresholdPercent: -1
 memories: 
   enabled: false
 modelRoles: 
-  plan: github-copilot/claude-opus-4.7:medium
-  designer: google-gemini-cli/gemini-3.1-pro-preview:high
-  default: github-copilot/gpt-5.5:high
-  smol: google-gemini-cli/gemini-3.1-pro-preview:high
+  plan: github-copilot/claude-opus-4.8
+  designer: github-copilot/gemini-3.1-pro-preview
+  default: github-copilot/gemini-3.1-pro-preview
+  smol: github-copilot/gpt-5.4-mini
+  tiny: github-copilot/gpt-5.4-nano
+  advisor: github-copilot/claude-sonnet-4.6
+  slow: github-copilot/claude-opus-4.8
+  vision: github-copilot/gemini-3.1-pro-preview
+  commit: github-copilot/gpt-5.4-nano
+  task: github-copilot/gemini-3.1-pro-preview
 memory: 
-  backend: "off"
+  backend: mnemopi
 setupVersion: 1
+defaultThinkingLevel: auto
+hideThinkingBlock: false
+proseOnlyThinking: true
+personality: pragmatic
+retry: 
+  maxRetries: 5
+  modelFallback: true
+  fallbackRevertPolicy: cooldown-expiry
+advisor: 
+  enabled: true
+  subagents: true
+  syncBacklog: "3"
+  immuneTurns: 5
+completion: 
+  notify: "on"
+stt: 
+  enabled: false
+features: 
+  unexpectedStopDetection: true
+contextPromotion: 
+  enabled: false
+branchSummary: 
+  enabled: false
+snapcompact: 
+  systemPrompt: none
+autolearn: 
+  enabled: false
+eval: 
+  rb: true
+  py: true
+plan: 
+  defaultOnStartup: true
+secrets: 
+  enabled: false
+colorBlindMode: false
+tui: 
+  textSizing: false
+  renderMermaid: true
+  tight: false
