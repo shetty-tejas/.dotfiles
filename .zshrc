@@ -41,6 +41,9 @@ export MISE_RUBY_BUILD_OPTS="--enable-yjit"
 # Ruby Related Variables.
 export RUBY_YJIT_ENABLE="true"
 
+# SDKROOT setup
+export SDKROOT=$(xcrun --show-sdk-path)
+
 # Typewritten Theme Related Variables.
 export TYPEWRITTEN_CURSOR="block"
 export TYPEWRITTEN_RELATIVE_PATH="home"

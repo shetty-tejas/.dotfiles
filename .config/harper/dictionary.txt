@@ -1,7 +1,10 @@
 ActiveJob
 ActiveRecord
+BDD
+Clippy
 DigitalOcean
 Minitest
+OKLCH
 OWASP
 SvelteKit
 TODO

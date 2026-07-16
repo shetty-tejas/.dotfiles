@@ -1,3 +1,5 @@
+.omp/*
+!.omp/agent/
+
 .omp/agent/*
-.omp/logs
 !.omp/agent/config.yml

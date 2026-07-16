@@ -1,9 +1,7 @@
-task: 
-  disabledAgents: 
-    []
-  agentModelOverrides: 
-    {}
-  isolation: 
+task:
+  disabledAgents: []
+  agentModelOverrides: {}
+  isolation:
     mode: auto
     commits: ai
     merge: patch
@@ -11,108 +9,114 @@ task:
   maxConcurrency: 8
   enableLsp: false
   batch: true
-theme: 
+theme:
   dark: dark-catppuccin
   light: light
 symbolPreset: nerd
-statusLine: 
+statusLine:
   preset: default
   separator: pipe
   showHookStatus: false
   transparent: false
   compactThinkingLevel: false
-display: 
+display:
   showTokenUsage: true
-exa: 
+exa:
   enableResearcher: true
   enableWebsets: true
-providers: 
+providers:
   webSearch: exa
   memoryModel: online
   antigravityEndpoint: auto
   tinyModel: online
-commands: 
+commands:
   enableClaudeUser: false
   enableClaudeProject: false
   enableOpencodeUser: false
   enableOpencodeProject: false
-renderMermaid: 
+renderMermaid:
   enabled: true
-calc: 
+calc:
   enabled: true
-inspect_image: 
+inspect_image:
   enabled: true
-checkpoint: 
+checkpoint:
   enabled: true
-async: 
+async:
   enabled: true
-bash: 
-  autoBackground: 
+bash:
+  autoBackground:
     enabled: false
-dev: 
+dev:
   autoqa: false
-lsp: 
+lsp:
   diagnosticsOnEdit: true
   formatOnWrite: true
-python: 
+python:
   sharedGateway: false
 collapseChangelog: true
-compaction: 
+compaction:
   handoffSaveToDisk: false
   strategy: snapcompact
   thresholdPercent: -1
-memories: 
+memories:
   enabled: false
-modelRoles: 
-  plan: github-copilot/claude-opus-4.8
-  designer: github-copilot/gemini-3.1-pro-preview
-  default: github-copilot/gemini-3.1-pro-preview
-  smol: github-copilot/gpt-5.4-mini
-  tiny: github-copilot/gpt-5.4-nano
-  advisor: github-copilot/claude-sonnet-4.6
-  slow: github-copilot/claude-opus-4.8
-  vision: github-copilot/gemini-3.1-pro-preview
-  commit: github-copilot/gpt-5.4-nano
-  task: github-copilot/gemini-3.1-pro-preview
-memory: 
+modelRoles:
+  # Reasoning and Planning
+  plan: opencode-go/deepseek-v4-pro
+  slow: opencode-go/kimi-k2.7-code
+  advisor: opencode-go/mimo-v2.5
+  # Quick tasks
+  default: opencode-go/deepseek-v4-flash
+  smol: opencode-go/deepseek-v4-flash
+  tiny: opencode-go/deepseek-v4-flash
+  commit: opencode-go/deepseek-v4-flash
+  task: opencode-go/deepseek-v4-flash
+  # Vision
+  designer: opencode-go/mimo-v2.5
+  vision: opencode-go/qwen3.7-plus
+memory:
   backend: mnemopi
 setupVersion: 1
 defaultThinkingLevel: auto
 hideThinkingBlock: false
 proseOnlyThinking: true
 personality: pragmatic
-retry: 
+retry:
   maxRetries: 5
   modelFallback: true
   fallbackRevertPolicy: cooldown-expiry
-advisor: 
+advisor:
   enabled: true
   subagents: true
   syncBacklog: "3"
   immuneTurns: 5
-completion: 
+completion:
   notify: "on"
-stt: 
+stt:
   enabled: false
-features: 
+features:
   unexpectedStopDetection: true
-contextPromotion: 
+contextPromotion:
   enabled: false
-branchSummary: 
+branchSummary:
   enabled: false
-snapcompact: 
+snapcompact:
   systemPrompt: none
-autolearn: 
+autolearn:
   enabled: false
-eval: 
+eval:
   rb: true
   py: true
-plan: 
+plan:
   defaultOnStartup: true
-secrets: 
+secrets:
   enabled: false
 colorBlindMode: false
-tui: 
+tui:
   textSizing: false
   renderMermaid: true
   tight: false
+readLineNumbers: true
+edit:
+  mode: hashline
