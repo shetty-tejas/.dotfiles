@@ -3,11 +3,20 @@
 # ---------------------------------------------------------------------
 
 # Aliases
+
+# Replacements
 alias cat="bat"
-alias lg="lazygit"
 alias ls="lsd"
+
+# Tools
+alias lg="lazygit"
 alias pi="omp"
 alias yz="yazi"
+
+# Quick Commands
+alias :c="clear"
+alias :q="exit"
+alias :z="exec zsh"
 
 # Keybindings
 
@@ -21,9 +30,22 @@ bindkey "^j" history-search-forward
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Shell Related.
+# Shell Related Variables.
 export CLICOLOR=1
 export EDITOR="hx"
+
+# FZF Related Variables.
+FZF_COLORS=(
+  '--color=bg:-1,bg+:#313244,spinner:#f5e0dc,hl:#f38ba8'
+  '--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc'
+  '--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8'
+)
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --exact"
+export FZF_DEFAULT_OPTS="${FZF_COLORS[*]}"
+
 
 # History Related Variables.
 export HISTSIZE=2500
@@ -75,14 +97,17 @@ zinit light reobin/typewritten
 zinit ice wait lucid bindings completions
 zinit light Aloxaf/fzf-tab
 
+# Load fzf default keybindings (CTRL+R for history, CTRL+T for files, ALT+C for directories)
+zinit snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
+
+zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C" atload"zicompinit; zicdreplay"
+zinit light zsh-users/zsh-syntax-highlighting
+
 zinit ice wait lucid blockf
 zinit light zsh-users/zsh-completions
 
 zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C" atload"!_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
-
-zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C" atload"zicompinit; zicdreplay"
-zinit light zsh-users/zsh-syntax-highlighting
 
 # ---------------------------------------------------------------------
 # SHELL OPTIONS & STYLES
@@ -97,10 +122,37 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
-zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
-zstyle ":completion:*" menu no
-zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --color \$realpath"
+# Use Completion Cache
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path "$HOME/.zcompcache"
+
+# Interactive Completion Menu
+zstyle ':completion:*' menu select
+
+# Completion Grouping
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:matches' group 'yes'
+
+# Descriptions and stuff
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*' default-description default
+zstyle ':completion:*:*' format '[%d]'
+zstyle ':completion:*:corrections' format '[%d (errors: %e)]'
+zstyle ':completion:*:warnings' format '[no matches found]'
+
+# Control groups in fzf-tab
+zstyle ':fzf-tab:*' switch-group '<' '>'
+
+# Catppuccin Mocha (Transparent) for fzf-tab
+zstyle ':fzf-tab:*' fzf-flags "${FZF_COLORS[@]}" '--border=rounded' '--layout=reverse'
+
+# Better completions for cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always -1 $realpath'
+
+# Better completions for cat
+zstyle ':fzf-tab:complete:(cat|bat|nano|vim|nvim):*' fzf-preview \
+  'bat --color=always --style=numbers,changes --line-range=:500 $realpath'
 
 # ---------------------------------------------------------------------
 # EXTERNAL TOOLS & COMPLETION FIXED

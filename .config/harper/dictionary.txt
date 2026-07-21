@@ -6,6 +6,7 @@ DigitalOcean
 Minitest
 OKLCH
 OWASP
+Prati
 SvelteKit
 TODO
 Thorsten
