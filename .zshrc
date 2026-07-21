@@ -121,11 +121,6 @@ fi
 # Tell Zinit to catch up on completions in the background
 zinit cdreplay -q
 
-# System Information
-if [[ -o interactive ]]; then
-    fastfetch
-fi
-
 # Automatically precompile .zshrc to bytecode if it changed
 if [[ -s "$HOME/.zshrc" && (! -s "$HOME/.zshrc.zwc" || "$HOME/.zshrc" -nt "$HOME/.zshrc.zwc") ]]; then
   zcompile "$HOME/.zshrc"

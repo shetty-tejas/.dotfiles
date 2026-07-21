@@ -63,15 +63,15 @@ memories:
   enabled: false
 modelRoles:
   # Reasoning and Planning
-  plan: opencode-go/deepseek-v4-pro
+  plan: opencode-go/qwen3.7-plus
   slow: opencode-go/kimi-k2.7-code
-  advisor: opencode-go/mimo-v2.5
+  advisor: opencode-go/deepseek-v4-flash
   # Quick tasks
-  default: opencode-go/deepseek-v4-flash
-  smol: opencode-go/deepseek-v4-flash
-  tiny: opencode-go/deepseek-v4-flash
-  commit: opencode-go/deepseek-v4-flash
-  task: opencode-go/deepseek-v4-flash
+  default: opencode-go/mimo-v2.5
+  smol: opencode-go/mimo-v2.5
+  tiny: opencode-go/mimo-v2.5
+  commit: opencode-go/mimo-v2.5
+  task: opencode-go/mimo-v2.5
   # Vision
   designer: opencode-go/mimo-v2.5
   vision: opencode-go/qwen3.7-plus
