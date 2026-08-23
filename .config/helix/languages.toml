@@ -48,6 +48,14 @@ name = "go"
 formatter = { command = "goimports" }
 language-servers = ["gopls", "golangci-lint-lsp", "harper-ls"]
 
+[[language]]
+name = "gotmpl"
+file-types = ["gohtml", "gotmpl", "tmpl"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["gopls", "vscode-html-language-server"]
+formatter = { command = "gotmplfmt" }
+
 # JSON Configuration
 [[language]]
 name = "json"
@@ -112,6 +120,7 @@ language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
 
 [[language]]
 name = "html"
+file-types = ["html", "svg"]
 formatter = { command = 'prettier', args = ["--parser", "html"] }
 language-servers = [
   "vscode-html-language-server",

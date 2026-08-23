@@ -16,10 +16,10 @@ alias yz="yazi"
 # Quick Commands
 alias :c="clear"
 alias :q="exit"
-alias :z="exec zsh"
+alias :z="source ~/.zshrc"
 
 # Keybindings
-
+bindkey -v
 bindkey "^k" history-search-backward
 bindkey "^j" history-search-forward
 
@@ -57,24 +57,26 @@ export HISTDUP="erase"
 export HOMEBREW_NO_ENV_HINTS="true"
 export HOMEBREW_PREFIX="/opt/homebrew"
 
-# Mise Related Variables.
-export MISE_RUBY_BUILD_OPTS="--enable-yjit"
+# PkgConfig Related Variables.
+lib_path="$HOMEBREW_PREFIX/opt"
+export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/bin/pkg-config:$lib_path/icu4c/lib/pkgconfig:$lib_path/curl/lib/pkgconfig:$lib_path/zlib/lib/pkgconfig"
 
-# Ruby Related Variables.
+# Ruby related Variables.
 export RUBY_YJIT_ENABLE="true"
 
 # SDKROOT setup
 export SDKROOT=$(xcrun --show-sdk-path)
 
 # Typewritten Theme Related Variables.
-export TYPEWRITTEN_CURSOR="block"
+export TYPEWRITTEN_ARROW_SYMBOL="=>"
+export TYPEWRITTEN_CURSOR="terminal"
 export TYPEWRITTEN_RELATIVE_PATH="home"
 export TYPEWRITTEN_SYMBOL="->"
 
 # Zinit Related Variables.
 export ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 
-export PATH="/Library/Developer/CommandLineTools/usr/bin:$HOME/bin:$HOME/.local/bin:$HOME/.bun/bin:/usr/local/bin:$PATH"
+export PATH="/Library/Developer/CommandLineTools/usr/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.bun/bin:$PATH"
 
 # Download Zinit if doesn't exist in the system.
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -151,11 +153,11 @@ zstyle ':fzf-tab:*' fzf-flags "${FZF_COLORS[@]}" '--border=rounded' '--layout=re
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always -1 $realpath'
 
 # Better completions for cat
-zstyle ':fzf-tab:complete:(cat|bat|nano|vim|nvim):*' fzf-preview \
+zstyle ':fzf-tab:complete:(cat|bat|nano|vim|nvim|hx):*' fzf-preview \
   'bat --color=always --style=numbers,changes --line-range=:500 $realpath'
 
 # ---------------------------------------------------------------------
-# EXTERNAL TOOLS & COMPLETION FIXED
+# EXTERNAL TOOLS & COMPLETIONS
 # ---------------------------------------------------------------------
 
 # Activate Mise

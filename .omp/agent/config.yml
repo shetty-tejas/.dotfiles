@@ -9,6 +9,8 @@ task:
   maxConcurrency: 8
   enableLsp: false
   batch: true
+  agentAdvisor:
+    task: "on"
 theme:
   dark: dark-catppuccin
   light: light
@@ -21,14 +23,34 @@ statusLine:
   compactThinkingLevel: false
 display:
   showTokenUsage: true
-exa:
-  enableResearcher: true
-  enableWebsets: true
 providers:
-  webSearch: exa
   memoryModel: online
   antigravityEndpoint: auto
   tinyModel: online
+  webSearchOrder:
+    - exa
+    - perplexity
+    - gemini
+    - anthropic
+    - codex
+    - xai
+    - zai
+    - tinyfish
+    - jina
+    - kagi
+    - tavily
+    - firecrawl
+    - brave
+    - kimi
+    - parallel
+    - synthetic
+    - searxng
+    - startpage
+    - duckduckgo
+    - ecosia
+    - google
+    - mojeek
+    - public
 commands:
   enableClaudeUser: false
   enableClaudeProject: false
@@ -39,7 +61,7 @@ renderMermaid:
 calc:
   enabled: true
 inspect_image:
-  enabled: true
+  mode: "on"
 checkpoint:
   enabled: true
 async:
@@ -54,30 +76,32 @@ lsp:
   formatOnWrite: true
 python:
   sharedGateway: false
-collapseChangelog: true
 compaction:
   handoffSaveToDisk: false
-  strategy: snapcompact
   thresholdPercent: -1
+  methodOrder:
+    - snapcompact
+    - remote
+    - soft
 memories:
   enabled: false
 modelRoles:
   # Reasoning and Planning
-  plan: opencode-go/qwen3.7-plus
-  slow: opencode-go/kimi-k2.7-code
-  advisor: opencode-go/deepseek-v4-flash
+  plan: opencode-go/gpt-5.6-luna
+  slow: opencode-go/deepseek-v4-flash
+  advisor: opencode-go/mimo-v2.5
   # Quick tasks
-  default: opencode-go/mimo-v2.5
-  smol: opencode-go/mimo-v2.5
-  tiny: opencode-go/mimo-v2.5
-  commit: opencode-go/mimo-v2.5
-  task: opencode-go/mimo-v2.5
+  default: opencode-go/muse-spark-1.2-contributor
+  smol: opencode-go/muse-spark-1.2-contributor
+  tiny: opencode-go/muse-spark-1.2-contributor
+  commit: opencode-go/muse-spark-1.2-contributor
+  task: opencode-go/muse-spark-1.2-contributor
   # Vision
-  designer: opencode-go/mimo-v2.5
-  vision: opencode-go/qwen3.7-plus
+  designer: opencode-go/deepseek-v4-flash
+  vision: opencode-go/deepseek-v4-flash-vision-exp
 memory:
   backend: mnemopi
-setupVersion: 1
+setupVersion: 2
 defaultThinkingLevel: auto
 hideThinkingBlock: false
 proseOnlyThinking: true
@@ -88,7 +112,6 @@ retry:
   fallbackRevertPolicy: cooldown-expiry
 advisor:
   enabled: true
-  subagents: true
   syncBacklog: "3"
   immuneTurns: 5
 completion:
@@ -120,3 +143,7 @@ tui:
 readLineNumbers: true
 edit:
   mode: hashline
+startup:
+  changelogMode: summary
+composer:
+  shape: box
