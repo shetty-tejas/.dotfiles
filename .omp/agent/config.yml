@@ -2,12 +2,12 @@ task:
   disabledAgents: []
   agentModelOverrides: {}
   isolation:
-    mode: auto
+    mode: none
     commits: ai
     merge: patch
-  eager: preferred
-  maxConcurrency: 8
-  enableLsp: false
+  eager: default
+  maxConcurrency: 32
+  enableLsp: true
   batch: true
   agentAdvisor:
     task: "on"
@@ -17,40 +17,23 @@ theme:
 symbolPreset: nerd
 statusLine:
   preset: default
-  separator: pipe
-  showHookStatus: false
-  transparent: false
+  separator: powerline-thin
+  showHookStatus: true
+  transparent: true
   compactThinkingLevel: false
+  sessionAccent: true
 display:
   showTokenUsage: true
+  shimmer: classic
+  hideToolActivity: false
+  cacheMissMarker: false
 providers:
   memoryModel: online
   antigravityEndpoint: auto
   tinyModel: online
-  webSearchOrder:
-    - exa
-    - perplexity
-    - gemini
-    - anthropic
-    - codex
-    - xai
-    - zai
-    - tinyfish
-    - jina
-    - kagi
-    - tavily
-    - firecrawl
-    - brave
-    - kimi
-    - parallel
-    - synthetic
-    - searxng
-    - startpage
-    - duckduckgo
-    - ecosia
-    - google
-    - mojeek
-    - public
+  webSearchOrder: []
+  openai-codex:
+    codeMode: "on"
 commands:
   enableClaudeUser: false
   enableClaudeProject: false
@@ -61,7 +44,7 @@ renderMermaid:
 calc:
   enabled: true
 inspect_image:
-  mode: "on"
+  mode: auto
 checkpoint:
   enabled: true
 async:
@@ -70,7 +53,7 @@ bash:
   autoBackground:
     enabled: false
 dev:
-  autoqa: false
+  autoqa: true
 lsp:
   diagnosticsOnEdit: true
   formatOnWrite: true
@@ -80,46 +63,44 @@ compaction:
   handoffSaveToDisk: false
   thresholdPercent: -1
   methodOrder:
+    - shake
     - snapcompact
     - remote
-    - soft
+  idleEnabled: false
 memories:
   enabled: false
 modelRoles:
-  # Reasoning and Planning
-  plan: opencode-go/gpt-5.6-luna
-  slow: opencode-go/deepseek-v4-flash
+  plan: opencode-go/qwen-3.8-flash
+  slow: opencode-go/qwen-3.8-flash
   advisor: opencode-go/mimo-v2.5
-  # Quick tasks
   default: opencode-go/muse-spark-1.2-contributor
   smol: opencode-go/muse-spark-1.2-contributor
   tiny: opencode-go/muse-spark-1.2-contributor
   commit: opencode-go/muse-spark-1.2-contributor
   task: opencode-go/muse-spark-1.2-contributor
-  # Vision
-  designer: opencode-go/deepseek-v4-flash
+  designer: opencode-go/qwen-3.8-flash
   vision: opencode-go/deepseek-v4-flash-vision-exp
 memory:
   backend: mnemopi
 setupVersion: 2
 defaultThinkingLevel: auto
-hideThinkingBlock: false
+hideThinkingBlock: true
 proseOnlyThinking: true
 personality: pragmatic
 retry:
-  maxRetries: 5
+  maxRetries: 3
   modelFallback: true
   fallbackRevertPolicy: cooldown-expiry
 advisor:
   enabled: true
-  syncBacklog: "3"
-  immuneTurns: 5
+  syncBacklog: "1"
+  immuneTurns: 0
 completion:
   notify: "on"
 stt:
   enabled: false
 features:
-  unexpectedStopDetection: true
+  unexpectedStopDetection: smart
 contextPromotion:
   enabled: false
 branchSummary:
@@ -127,23 +108,73 @@ branchSummary:
 snapcompact:
   systemPrompt: none
 autolearn:
-  enabled: false
+  enabled: true
 eval:
   rb: true
   py: true
 plan:
-  defaultOnStartup: true
+  defaultOnStartup: false
 secrets:
-  enabled: false
+  enabled: true
 colorBlindMode: false
 tui:
   textSizing: false
   renderMermaid: true
   tight: false
-readLineNumbers: true
+  titleState: true
+readLineNumbers: false
 edit:
   mode: hashline
+  fuzzyThreshold: 0.98
+  autoRepair:
+    enabled: true
+  enforceSeenLines: true
 startup:
   changelogMode: summary
 composer:
   shape: box
+terminal:
+  showProgress: false
+omitThinking: false
+modelRoleStorage: project
+inlineToolDescriptors: auto
+includeModelInPrompt: true
+images:
+  describeForTextModels: true
+interruptMode: immediate
+doubleEscapeAction: tree
+error:
+  notify: "on"
+recap:
+  idleSeconds: 60
+collab:
+  displayName: Tejas
+share:
+  store: blob
+update:
+  channel: stable
+power:
+  sleepPrevention: display
+extendedContext: false
+read:
+  defaultLimit: 300
+shellMinimizer:
+  sourceOutlineLevel: default
+astGrep:
+  enabled: true
+github:
+  enabled: true
+security:
+  enabled: true
+computer:
+  enabled: false
+todo:
+  reminders: true
+  remindersMax: 3
+  eager: preferred
+tasks:
+  todoClearDelay: 60
+grep:
+  contextBefore: 1
+tools:
+  xdevDocs: builtins

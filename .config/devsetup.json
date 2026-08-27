@@ -33,6 +33,7 @@
       "fd",
       "ffmpeg",
       "fzf",
+      "gh",
       {
         "tool": "ghostty",
         "cask": true
@@ -53,6 +54,10 @@
       "markdown-oxide",
       "mise",
       "ncdu",
+      {
+        "tool": "open-design",
+        "cask": true
+      },
       "openssl@3",
       "pkg-config",
       "poppler",

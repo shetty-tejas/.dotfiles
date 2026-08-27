@@ -2,6 +2,9 @@
 # SETUP
 # ---------------------------------------------------------------------
 
+# PATH
+export PATH="/Library/Developer/CommandLineTools/usr/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.bun/bin:$PATH"
+
 # Aliases
 
 # Replacements
@@ -10,8 +13,12 @@ alias ls="lsd"
 
 # Tools
 alias lg="lazygit"
-alias pi="omp"
 alias yz="yazi"
+
+# Symlink omp to ~/.local/bin/pi (useful when tools want pi installed)
+if ! command -v pi &>/dev/null; then
+  ln -s "$HOME/.bun/bin/omp" "$HOME/.local/bin/pi"
+fi
 
 # Quick Commands
 alias :c="clear"
@@ -75,8 +82,6 @@ export TYPEWRITTEN_SYMBOL="->"
 
 # Zinit Related Variables.
 export ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
-
-export PATH="/Library/Developer/CommandLineTools/usr/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.bun/bin:$PATH"
 
 # Download Zinit if doesn't exist in the system.
 if [ ! -d "$ZINIT_HOME" ]; then
